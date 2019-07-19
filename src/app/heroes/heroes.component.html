@@ -1,0 +1,22 @@
+
+
+<!-- At first run this element will fail because selectedHero is null. Since it is 2 way binded it crashes. 
+Use ngIf, to check if the hero is selected before displaying any content to the page. -->
+
+<h2>Hero Roster</h2>
+<ul class="heroes">
+
+    <!-- Attach a click event to each element in the list-->
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero"
+    >
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+
+   <!-- Send parent component information to child component. (inject hero object to component)-->
+
+   <!-- reference to this object is pass, so any modification are remembered -->
+
+   <!-- [hero] refers to the class property in that component-->
+   <app-hero-detail [hero]="selectedHero"></app-hero-detail>
