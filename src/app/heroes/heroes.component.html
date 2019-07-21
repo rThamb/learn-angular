@@ -5,11 +5,10 @@ Use ngIf, to check if the hero is selected before displaying any content to the 
 
 <h2>Hero Roster</h2>
 <ul class="heroes">
-
-    <!-- Attach a click event to each element in the list-->
-    <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero"
-    >
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
   </li>
 </ul>
 
@@ -19,4 +18,4 @@ Use ngIf, to check if the hero is selected before displaying any content to the 
    <!-- reference to this object is pass, so any modification are remembered -->
 
    <!-- [hero] refers to the class property in that component-->
-   <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+   <!--<app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
